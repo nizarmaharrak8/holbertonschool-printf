@@ -7,6 +7,7 @@ int main(void)
 {
 char x = 'h';
 _printf("%c", x);
+_printf("%d ",22);
 return(0);
 
 }
