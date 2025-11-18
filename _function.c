@@ -1,15 +1,17 @@
 #include "main.h"
-
-
+#include <unistd.h>
+#include <string.h>
 
 int print_string(char *s)
 {
-int len;
+    int len;
 
-if (!s)
-s = "(null)";
-len = strlen(s);
-write(1, s, len);
-return (len);
+    if (!s)
+        s = "(null)";
 
+    len = strlen(s);
+    write(1, s, len);
+
+    return (len);
 }
+

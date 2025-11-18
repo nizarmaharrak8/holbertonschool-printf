@@ -5,7 +5,7 @@
 int _printf(const char *format, ...)
 {
     va_list args;
-    int i = 0;
+    int i = 0, count = 0;
     char c;
 
     if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -23,50 +23,35 @@ int _printf(const char *format, ...)
             {
                 c = va_arg(args, int);
                 write(1, &c, 1);
+                count++;
+            }
+            else if (format[i] == 's')
+            {
+                count += print_string(va_arg(args, char *));
+            }
+            else if (format[i] == '%')
+            {
+                write(1, "%", 1);
+                count++;
+            }
+            else
+            {
+                /* Unknown specifier → print % + char */
+                write(1, "%", 1);
+                write(1, &format[i], 1);
+                count += 2;
             }
         }
         else
         {
             write(1, &format[i], 1);
+            count++;
         }
 
         i++;
     }
 
     va_end(args);
-    return (0);
+    return (count);
 }
-if (format[*i] == 's')
-return (print_string(va_arg(args, char *)));
-if (format[*i] == '%')
-{
-write(1, "%", 1);
-return (1)
-}
-write(1, "%", 1);
-write(1, &format[*i], 1);
-return (2);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
