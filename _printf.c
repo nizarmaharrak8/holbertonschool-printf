@@ -5,7 +5,7 @@
 int _printf(const char *format, ...)
 {
     va_list args;
-    int i = 0, count = 0;
+    int i = 0, count = 0,number = 0;
     char c;
 
     if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -32,6 +32,12 @@ int _printf(const char *format, ...)
             else if (format[i] == '%')
             {
                 write(1, "%", 1);
+                count++;
+            }
+            else if (format[i] == 'd' || format[i == 'i'])
+            {
+                number = va_arg(args,int);
+                write(1, number, 1);
                 count++;
             }
             else
