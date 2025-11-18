@@ -1,0 +1,11 @@
+#include <stdarg.h>
+#include <unistd.h>
+#include <string.h>
+#include "main.h"
+
+int main(void)
+{
+_printf("%");
+return(0);
+
+}
