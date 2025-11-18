@@ -5,7 +5,8 @@
 
 int main(void)
 {
-_printf("%");
+char x = 'h';
+_printf("%c", x);
 return(0);
 
 }
