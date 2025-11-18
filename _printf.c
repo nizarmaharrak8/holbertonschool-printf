@@ -36,3 +36,37 @@ int _printf(const char *format, ...)
     va_end(args);
     return (0);
 }
+if (format[*i] == 's')
+return (print_string(va_arg(args, char *)));
+if (format[*i] == '%')
+{
+write(1, "%", 1);
+return (1)
+}
+write(1, "%", 1);
+write(1, &format[*i], 1);
+return (2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
