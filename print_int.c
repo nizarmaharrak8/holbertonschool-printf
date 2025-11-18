@@ -1,4 +1,4 @@
-#include "main.h"
+#include <unistd.h>
 
 int print_int(int n)
 {
